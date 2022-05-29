@@ -5,6 +5,7 @@
 
 # 自定义
 main
+.vscode
 
 # User-specific files
 *.rsuser
