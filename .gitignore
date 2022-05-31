@@ -4,8 +4,9 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # 自定义
-main
+mal
 .vscode
+*.o
 
 # User-specific files
 *.rsuser
