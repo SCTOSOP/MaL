@@ -18,6 +18,7 @@ public:
 protected:
 	FILE* file;
 	std::vector<std::string> codes;
+	bool all_ok;
 };
 
 #endif // !CODING_MAIN

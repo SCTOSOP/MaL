@@ -9,7 +9,7 @@ using namespace std;
 
 
 Coding::Coding(int size, char** arg)
-	:file(NULL)
+	:file(NULL),all_ok(false)
 {
 	if (size==0) { throw Error("...",0,"缺少参数！"); }
 
@@ -31,11 +31,13 @@ Coding::Coding(int size, char** arg)
 	if (fread(c_codes,1,file_length,file)!= file_length) { delete[] c_codes; throw Error("...",0,"读入文件时文件长度校准错误"); }
 		// 转为 string ，按行分割，存入 vector
 	boost::split(codes,c_codes,boost::is_any_of("\n"),boost::token_compress_on);
+
+	all_ok=true;
 }
 
 Coding::~Coding()
 {
-	// 如果 is_ok 则释放
+	// 释放文件句柄
 	if (file != NULL)
 	{
 		fclose(file);
@@ -50,5 +52,5 @@ void Coding::coding()
 
 bool Coding::is_ok()
 {
-	return (file != NULL);
+	return (file != NULL && all_ok);
 }
