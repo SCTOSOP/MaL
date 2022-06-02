@@ -1,3 +1,5 @@
+# [Linux版本已在更新](https://github.com/SCTOSOP/MaL/tree/main/compiler/ubuntu)
+- [Linux版本已在更新](#linux版本已在更新)
 - [语言规划](#语言规划)
   - [变量常量（元素）](#变量常量元素)
   - [函数](#函数)
