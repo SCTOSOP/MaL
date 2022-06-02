@@ -1,7 +1,29 @@
 #include "../include/coding_main.h"
 #include "../include/Errors.h"
+#include <iostream>
+#include <vector>
 
-void coding_main(int size, char** arg)
+using namespace std;
+
+
+Coding::Coding(int size, char** arg)
+    :file(NULL)
 {
-    if (size==0) { Error("a",1,"aaaa").print_what(); }
+    if (size==0) { throw new Error("...",0,"缺少参数！"); }
+
+
+
+    file = fopen(arg[0],"r");
+    if (file == NULL)
+    {
+        throw new Error("...",0,"无法打开文件！");
+    }
+}
+
+Coding::~Coding()
+{
+    if (file != NULL)
+    {
+        fclose(file);
+    }
 }

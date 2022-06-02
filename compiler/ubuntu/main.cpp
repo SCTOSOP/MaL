@@ -1,20 +1,31 @@
 #include <iostream>
-#include <boost/regex.hpp>
+#include <string.h>
 #include "include/coding_main.h"
+#include "include/Errors.h"
 
-typedef unsigned long long SIZE;
 
 int main(int size, char** arg)
 {
     if (size==1)
     {
-        printf("缺少参数！\n");
+        Error("...",0,"缺少参数！").print_what();
+
+		return 1;
     }
 
     if (strcmp(arg[1],"1")==0)
     {
         printf("开始编码！\n");
-        coding_main(size-2,arg+2);
+        
+        try
+        {
+            Coding code = Coding(size-2, arg+2);
+        }
+        catch(Error* e)
+        {
+            printf("%s\n",e->what());
+        }
+        
     }
 
     return 0;
