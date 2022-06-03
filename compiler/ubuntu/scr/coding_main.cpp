@@ -31,6 +31,7 @@ Coding::Coding(int size, char** arg)
 	if (fread(c_codes,1,file_length,file)!= file_length) { delete[] c_codes; throw Error("...",0,"读入文件时文件长度校准错误"); }
 		// 转为 string ，按行分割，存入 vector
 	boost::split(codes,c_codes,boost::is_any_of("\n"),boost::token_compress_on);
+	delete[] c_codes;
 
 	all_ok=true;
 }
