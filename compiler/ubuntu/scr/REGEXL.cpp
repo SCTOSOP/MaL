@@ -1,6 +1,18 @@
 #include "../include/REGEXL.h"
 
-bool REGEXL::var_or_con()
+using namespace boost;
+
+bool REGEXL::var_or_con(const char* str)
 {
-	return false;
+	return regex_match(str,regex("[a-zA-Z][_a-zA-Z0-9]*"));
+}
+
+bool REGEXL::assignment(const char* str, boost::cmatch& cm)
+{
+	return regex_match(str,cm,regex("var[\\s]+([a-zA-Z][_a-zA-Z0-9]*)([\\s]*=[\\s]*([\\S]+)){0,1}"));
+}
+
+bool REGEXL::fun_call(const char* str, boost::cmatch& cm)
+{
+	return regex_match(str,cm,regex("([a-zA-Z][_a-zA-Z0-9]*)[\\s]*\\([\\s]*(([a-zA-Z][_a-zA-Z0-9]*[\\s]*){0,})\\)"));
 }

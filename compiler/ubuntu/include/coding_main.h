@@ -16,7 +16,11 @@ public:
 	bool is_ok();
 
 protected:
-	FILE* file;
+	int arg_size;
+	char** arg_arg;
+
+	FILE* file_in;
+	FILE* file_out;
 	std::vector<std::string> codes;
 	bool all_ok;
 };

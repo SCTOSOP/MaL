@@ -2,14 +2,16 @@
 #define REGEXL_H
 
 #include <boost/regex.hpp>
-class REGEXL
+#include <string.h>
+
+namespace REGEXL
 {
-public:
-	static bool var_or_con();
+	bool var_or_con(const char* str);
 
-protected:
+	// 赋值 -- 0全部 1左值 3右值
+	bool assignment(const char* str, boost::cmatch& cm);
 
-
-};
+	bool fun_call(const char* str, boost::cmatch& cm);
+}
 
 #endif // !REGEXL_H

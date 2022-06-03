@@ -6,6 +6,7 @@
 
 int main(int size, char** arg)
 {
+	// 检查参数缺失
 	if (size==1)
 	{
 		Error("...",0,"缺少参数！").print_what();
@@ -22,7 +23,7 @@ int main(int size, char** arg)
 		}
 		catch(Error& e)
 		{
-			printf("%s\n",e.what());
+			e.print_what();
 		}
 		
 	}
