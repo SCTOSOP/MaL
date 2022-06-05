@@ -93,6 +93,7 @@ void Coding::coding()
 			// 赋值
 		{
 			Info(code_place,0,string("检测到赋值：")+*it_codes).print_what();
+			
 			it_codes++;
 		}
 		else
