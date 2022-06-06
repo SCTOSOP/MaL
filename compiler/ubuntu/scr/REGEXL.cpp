@@ -16,7 +16,3 @@ bool REGEXL::fun_call(const char* str, boost::cmatch& cm)
 {
 	return regex_match(str,cm,regex("([a-zA-Z][_a-zA-Z0-9]*)[\\s]*\\([\\s]*(([a-zA-Z][_a-zA-Z0-9]*[\\s]*){0,})\\)"));
 }
-
-std::unordered_map<std::string,CBlock*> global_dispatching_station::blocks;
-std::unordered_map<std::string,CType*> global_dispatching_station::types;
-CBlock* global_dispatching_station::cur_block = nullptr;

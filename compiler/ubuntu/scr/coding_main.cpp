@@ -1,6 +1,7 @@
 #include "../include/coding_main.h"
 #include "../include/Errors.h"
 #include "../include/REGEXL.h"
+#include "../include/coding_gds.h"
 #include <iostream>
 #include <vector>
 #include <boost/algorithm/string.hpp>
