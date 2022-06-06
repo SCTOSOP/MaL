@@ -7,14 +7,14 @@
 class CBlock
 {
 public:
-    CBlock(CBlock* p = nullptr);
-    ~CBlock();
+	CBlock(CBlock* p = nullptr);
+	~CBlock();
 
 protected:
-    std::unordered_map<std::string,size_t> vars;
-    std::unordered_map<std::string,size_t> cons;
-    CBlock* parent;
-
+	std::unordered_map<std::string,size_t> vars;
+	std::unordered_map<std::string,size_t> cons;
+	CBlock* parent_ptr;
+	std::string parent_name;
 };
 
 #endif //  !CODING_BLOCK

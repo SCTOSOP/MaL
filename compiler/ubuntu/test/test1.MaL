@@ -4,10 +4,10 @@ var a = 0
 var b = 其违规企业法
 var c
 fun main()
-    for 10
-        a++
-    forend
-    print(a)
+	for 10
+		a++
+	forend
+	print(a)
 funend
 
 main()

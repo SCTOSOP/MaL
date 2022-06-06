@@ -7,7 +7,6 @@
 
 using namespace std;
 
-
 Coding::Coding(int size, char** arg)
 	:file_in(NULL),all_ok(false),arg_size(size),arg_arg(arg)
 {
@@ -80,7 +79,14 @@ void Coding::coding()
 
 	// !正式开始编码
 		// 代码所处位置，用于信息输出
-	string code_place="boot";
+	string code_boot_place_name="boot";
+
+		// 起始区块名
+	CBlock* block_boot = new CBlock();
+		// 添加起始区块到全局区块库
+	global_dispatching_station::blocks.insert(pair<BLOCKS_PAIR>(code_boot_place_name,block_boot));
+	global_dispatching_station::cur_block = block_boot;
+
 	it_codes=codes.begin();
 	while (it_codes!=codes.end())
 	{
@@ -92,13 +98,13 @@ void Coding::coding()
 		else if (REGEXL::assignment((*it_codes).c_str(),cm))
 			// 赋值
 		{
-			Info(code_place,0,string("检测到赋值：")+*it_codes).print_what();
+			Info(code_boot_place_name,0,string("检测到赋值：")+*it_codes).print_what();
 			
 			it_codes++;
 		}
 		else
 		{
-			throw Error(code_place,0,string("无法理解的语句：")+*it_codes);
+			throw Error(code_boot_place_name,0,string("无法理解的语句：")+*it_codes);
 		}
 	}
 	
