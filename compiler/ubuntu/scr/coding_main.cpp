@@ -86,6 +86,7 @@ void Coding::coding()
 	CBlock* block_boot = new CBlock();
 		// 添加起始区块到全局区块库
 	global_dispatching_station::blocks.insert(pair<BLOCKS_PAIR>(code_boot_place_name,block_boot));
+		// 设置目前正在处理的区块
 	global_dispatching_station::cur_block = block_boot;
 
 	it_codes=codes.begin();

@@ -1,5 +1,5 @@
-mal:main.o coding_main.o Errors.o REGEXL.o coding_block.o coding_operation.o coding_types.o coding_gds.o
-	@g++ build/main.o build/coding_main.o build/Errors.o build/REGEXL.o build/coding_block.o build/coding_operation.o build/coding_types.o build/coding_gds.o -o mal
+mal:main.o coding_main.o Errors.o REGEXL.o coding_block.o coding_operation.o coding_gds.o
+	@g++ build/main.o build/coding_main.o build/Errors.o build/REGEXL.o build/coding_block.o build/coding_operation.o build/coding_gds.o -o mal
 	@echo ">>>编译成功"
 
 main.o:main.cpp
@@ -20,9 +20,6 @@ coding_block.o:scr/coding_block.cpp include/coding_block.h
 coding_operation.o:scr/coding_operation.cpp include/coding_operation.h
 	@@g++ -c -std=c++17 scr/coding_operation.cpp -o build/coding_operation.o
 
-coding_types.o:scr/coding_types.cpp include/coding_types.h
-	@g++ -c -std=c++17 scr/coding_types.cpp -o build/coding_types.o
-
 coding_gds.o:scr/coding_gds.cpp include/coding_gds.h
 	@g++ -c -std=c++17 scr/coding_gds.cpp -o build/coding_gds.o
 
@@ -32,7 +29,7 @@ clean_mal:
 
 .PHONY:clean_build
 clean_build:
-	@rm build/main.o build/Errors.o build/coding_main.o build/REGEXL.o build/coding_block.o build/coding_operation.o build/coding_types.o build/coding_gds.o
+	@rm build/main.o build/Errors.o build/coding_main.o build/REGEXL.o build/coding_block.o build/coding_operation.o build/coding_gds.o
 
 .PHONY:mt
 mt:mal

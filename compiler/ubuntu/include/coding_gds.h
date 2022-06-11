@@ -3,18 +3,29 @@
 
 
 #include "../include/coding_block.h"
-#include "../include/coding_types.h"
 #include <string.h>
 #include <unordered_map>
 
 #define BLOCKS_PAIR std::string,CBlock*
-#define TYPES_PAIR std::string,CType*
 
 class global_dispatching_station
 {
 public:
+	// 初始化全局库
+	static void init();
+
+	// 全局区块库
 	static std::unordered_map<BLOCKS_PAIR> blocks;
-	static std::unordered_map<TYPES_PAIR> types;
+	// 全局数据块库
+	static std::unordered_map<std::string,long> Tlong;
+	// 全局数据块库
+	static std::unordered_map<std::string,unsigned long> Tulong;
+	// 全局数据块库
+	static std::unordered_map<std::string,std::string> Tstring;
+	// 全局数据块库
+	static std::unordered_map<std::string,bool> Tbool;
+	// 全局数据块库
+	static std::unordered_map<std::string,double> Tdouble;
 
 	// 当前正在处理的区块，一般用于区块继承
 	static CBlock* cur_block;
